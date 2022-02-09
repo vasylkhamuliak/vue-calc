@@ -1,7 +1,10 @@
 <template>
   <div id="test">
-    This is test
-    <app-input></app-input>
+    <h2>{{ testMessage }}</h2>
+    <app-input
+      :msg="testMessage"
+      @changeMsg="testMessage = $event"
+    ></app-input>
   </div>
 </template>
 
@@ -9,8 +12,14 @@
 import Field from './Field.vue'
 
 export default {
+  data() {
+    return {
+      testMessage: 'Test message'
+    }
+  },
   components: {
     'app-input': Field
-  }
+  },
+
 }
 </script>
